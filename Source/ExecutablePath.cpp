@@ -31,10 +31,9 @@ namespace Platform
 		return Path(file);
 	}
 
-	Path GetPathRelativeToExecutable(const String& relative_path)
+	Path BuildPath(const Path& root, const String& relative_path)
 	{
-		Path pa = GetExecutablePath();
-
+		Path pa = root;
 		auto splits = Split(relative_path, '/');
 		for (auto it = splits.begin(); it != splits.end(); it++)
 		{
@@ -51,6 +50,11 @@ namespace Platform
 		}
 
 		return pa;
+	}
+
+	Path GetPathRelativeToExecutable(const String& relative_path)
+	{
+		return BuildPath(GetExecutablePath(), relative_path);
 	}
 }
 
