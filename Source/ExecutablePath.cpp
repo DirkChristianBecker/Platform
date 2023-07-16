@@ -1,4 +1,5 @@
 #include "ExecutablePath.h"
+#include "StringTools.h"
 
 namespace Platform
 {
@@ -28,6 +29,28 @@ namespace Platform
 		}
 
 		return Path(file);
+	}
+
+	Path GetPathRelativeToExecutable(const String& relative_path)
+	{
+		Path pa = GetExecutablePath();
+
+		auto splits = Split(relative_path, '/');
+		for (auto it = splits.begin(); it != splits.end(); it++)
+		{
+			// Move up?
+			if (it->size() == 2 &&
+				it->at(0) == '.' &&
+				it->at(1) == '.')
+			{
+				pa = pa.parent_path();
+				continue;
+			}
+
+			pa /= it->c_str();
+		}
+
+		return pa;
 	}
 }
 

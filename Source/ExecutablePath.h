@@ -19,4 +19,5 @@ namespace Platform
 	using Path = std::filesystem::path;
 
 	Path GetExecutablePath();
+	Path GetPathRelativeToExecutable(const String& relative_path);
 }
