@@ -6,7 +6,6 @@
 /**
  * MAIN
  */
-// #pragma warning(suppress: 4100)
 int main(int argc, char** argv) 
 {
     auto relative = "../../data";

@@ -10,9 +10,11 @@ namespace Platform
 		return haystack.replace(start, length, replacement);
 	}
 
-	Vector<String> Split(const String& s, char delim) {
+	Vector<String> Split(const String& s, char delim) 
+	{
 		Vector<String> elems;
 		Split(s, delim, std::back_inserter(elems));
+
 		return elems;
 	}
 }
