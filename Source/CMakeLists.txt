@@ -47,8 +47,8 @@ target_compile_options(
     ${PLATFORM_LIB_NAME} 
 	PUBLIC 
     /W3 /nologo /EHsc
-    "$<$<CONFIG:Debug>:/MTd;/Od;/Ob0;/Zi;/RTC1;/DDEBUG;/D_DEBUG;>"
-    "$<$<CONFIG:Release>:/MT;/O2;/Ob2;/DNDEBUG;>"
+    "$<$<CONFIG:Debug>:/MDd;/Od;/Ob0;/Zi;/RTC1;/DDEBUG;/D_DEBUG;>"
+    "$<$<CONFIG:Release>:/MD;/O2;/Ob2;/DNDEBUG;>"
 )
 
 if (MSVC)
