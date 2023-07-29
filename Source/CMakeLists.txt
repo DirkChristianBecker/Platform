@@ -43,12 +43,15 @@ target_include_directories(${PLATFORM_LIB_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DI
 ## Properties
 set_target_properties(${PLATFORM_LIB_NAME} PROPERTIES DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX})
 
+set(CMAKE_CXX_FLAGS "-Wall")
+set(CMAKE_CXX_FLAGS_DEBUG "-Od -Ob0 -MTd")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -MT")
 target_compile_options(
     ${PLATFORM_LIB_NAME} 
 	PUBLIC 
     /W3 /nologo /EHsc
-    "$<$<CONFIG:Debug>:/MDd;/Od;/Ob0;/Zi;/RTC1;/DDEBUG;/D_DEBUG;>"
-    "$<$<CONFIG:Release>:/MD;/O2;/Ob2;/DNDEBUG;>"
+    "$<$<CONFIG:Debug>:/MTd;/Od;/Ob0;/Zi;/RTC1;/DDEBUG;/D_DEBUG;>"
+    "$<$<CONFIG:Release>:/MT;/O2;/Ob2;/DNDEBUG;>"
 )
 
 if (MSVC)

@@ -35,4 +35,23 @@ namespace Platform
 	/// <param name="s">The string to split</param>
 	/// <param name="delim">A delimiter symbol</param>
 	Vector<String> Split(const String& s, char delim);
+
+	/// <summary>
+	/// Replace the needle inside the haystack with the given replacement.
+	/// 
+	/// </summary>
+	/// <param name="haystack"></param>
+	/// <param name="needle"></param>
+	/// <param name="replacement"></param>
+	/// <returns></returns>
+	String Replace(String& haystack, const String& needle, const String& replacement);
+
+	/// <summary>
+	/// Returns true, if the input string ends with the given ending.
+	/// 
+	/// </summary>
+	/// <param name="input"></param>
+	/// <param name="ending"></param>
+	/// <returns></returns>
+	bool EndsWith(std::string const& input, std::string const& ending);
 }

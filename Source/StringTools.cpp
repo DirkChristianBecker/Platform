@@ -2,7 +2,7 @@
 
 namespace Platform
 {
-	String Replace(String haystack, const String needle, const String replacement)
+	String Replace(String& haystack, const String& needle, const String& replacement)
 	{
 		auto start = haystack.find(needle, 0);
 		auto length = needle.size();
@@ -16,5 +16,20 @@ namespace Platform
 		Split(s, delim, std::back_inserter(elems));
 
 		return elems;
+	}
+
+	bool EndsWith(std::string const& input, std::string const& ending)
+	{
+		if(input.length() >= ending.length())
+		{
+			return input.compare(
+				input.length() - ending.length(),
+				ending.length(),
+				ending) == 0;
+		}
+		else
+		{
+			return false;
+		}
 	}
 }
