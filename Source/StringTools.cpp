@@ -27,9 +27,17 @@ namespace Platform
 				ending.length(),
 				ending) == 0;
 		}
-		else
+
+		return false;
+	}
+
+	bool StartsWith(const String& input, const String& beginning)
+	{
+		if(input.length() >= beginning.length())
 		{
-			return false;
+			return input.compare(0, beginning.length(), beginning) == 0;
 		}
+
+		return false;
 	}
 }

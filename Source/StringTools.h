@@ -54,4 +54,12 @@ namespace Platform
 	/// <param name="ending"></param>
 	/// <returns></returns>
 	bool EndsWith(std::string const& input, std::string const& ending);
+
+	/// <summary>
+	/// Returns true, if the input string begins with the given beginning.
+	/// </summary>
+	/// <param name="input"></param>
+	/// <param name="ending"></param>
+	/// <returns></returns>
+	bool StartsWith(const String& input, const String& beginning);
 }
