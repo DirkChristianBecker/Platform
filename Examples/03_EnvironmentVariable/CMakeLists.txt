@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.7)
+cmake_minimum_required(VERSION 3.27)
 
 ## Sample template - Sample name equals the name of the folder the sample lives in.
 get_filename_component(SampleName ${CMAKE_CURRENT_SOURCE_DIR} NAME)

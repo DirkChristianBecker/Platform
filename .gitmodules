@@ -1,0 +1,3 @@
+[submodule "ThirdParty/StringExtensions"]
+	path = ThirdParty/StringExtensions
+	url = https://github.com/DirkChristianBecker/StringExtensions.git

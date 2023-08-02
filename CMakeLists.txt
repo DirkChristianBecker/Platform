@@ -14,6 +14,7 @@ set(PROJECT_NAME Platform)
 ## Set the lib name
 ## Specify a name for the generated library file
 set(PLATFORM_LIB_NAME ${PROJECT_NAME})
+set(LIBS_FOLDER_NAME Libs)
 
 ## The folder name for a libraries used.
 set(EXAMPLES_FOLDER_NAME Examples)
@@ -39,6 +40,7 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 option(PLATFORM_BUILD_EXAMPLES "Build Platform examples?" OFF)
 
+add_subdirectory(ThirdParty)
 add_subdirectory(Source)
 if(${PLATFORM_BUILD_EXAMPLES})
 	add_subdirectory(Examples)

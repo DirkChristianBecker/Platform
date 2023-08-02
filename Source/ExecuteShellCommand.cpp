@@ -18,12 +18,13 @@ namespace Platform
 #ifdef LINUX
         std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd, "r"), pclose);
 #endif
+
         if(!pipe) 
         {
             throw std::runtime_error("Popen() failed!");
         }
 
-        while(fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) 
+        while(fgets(buffer.data(), (int) buffer.size(), pipe.get()) != nullptr) 
         {
             result += buffer.data();
         }

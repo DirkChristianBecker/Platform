@@ -36,6 +36,9 @@ endif (MSVC)
 
 add_library(${PLATFORM_LIB_NAME} STATIC ${PLATFORM_SOURCES})
 set_target_properties(${PLATFORM_LIB_NAME} PROPERTIES LINKER_LANGUAGE CXX)
+target_link_libraries(${PLATFORM_LIB_NAME}
+	StringExtensions
+)
 
 ## Sources and headers
 target_include_directories(${PLATFORM_LIB_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
@@ -54,13 +57,21 @@ target_compile_options(
     "$<$<CONFIG:Release>:/MT;/O2;/Ob2;/DNDEBUG;>"
 )
 
-if (MSVC)
+if (WIN32)
     add_compile_definitions(WINDOWS)
-endif (MSVC)
+endif (WIN32)
 
-if (Clang)
+if (APPLE)
+    add_compile_definitions(APPLE)
+endif (APPLE)
+
+if (LINUX)
     add_compile_definitions(LINUX)
-endif (Clang)
+endif (LINUX)
+
+if(ANDROID)
+	add_compile_definitions(ANDROID)
+endif(ANDROID)
 
 ## 3. Install...
 install(TARGETS ${PLATFORM_LIB_NAME} RUNTIME DESTINATION bin)
